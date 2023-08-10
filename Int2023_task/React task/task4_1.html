@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function showdata(form) {
+            var name = form.uname.value;
+            var password = form.upassword.value;
+            var city = form.ucity.value;
+
+            if(name=="" || password==""|| city=="")
+            {
+                document.getElementById("msg").innerHTML = "Field can not be blanck.";
+            }
+            else{
+
+           document.getElementById("msg").innerHTML = "<table border='1' width='500px'><tr><td>Name : </td><td>"+name 
+            + "</td></tr><tr><td>password : </td><td>"+password 
+                + "</td></tr><tr><td>city : </td><td>"+city 
+                    + "</td></tr></table>";
+            }
+        }
+    </script>
+    <form>
+        Name : <input type="text" name="uname"><br>
+        Password : <input type="password" name="upassword"><br>
+        City : <select name="ucity">
+            <option value="ADI">Ahmedabad</option>
+            <option value="RJT">Rajkot</option>
+            <option value="ST">Surat</option>
+
+        </select><br>
+        <input type="submit" onclick="showdata(this.form); return false;">
+    </form>
+    <p id="msg"></p>
+</body>
+
+</html>

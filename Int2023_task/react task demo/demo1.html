@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var myobj = { "gujrat": "ahmedabad", "maharashtra": "mumbai", "rajsthan": "jaypur" };
+
+
+        for (var i in myobj) {
+            document.write(i + "<br>");
+        }
+        document.write("<br>");
+
+        for (var i in myobj) {
+            document.write(myobj[i] + "<br>");
+        }
+        document.write("<br>");
+
+
+        for (var i in myobj) {
+            document.write("my state is: " + i + " city is: " + myobj[i] + "<br>");
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

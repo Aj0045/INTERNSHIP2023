@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width" , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //function check(form) {
+        // var name = form.uname.value; 
+        //
+        //}
+        const handleSubmit = (form) => {
+
+            let name = form.uname.value;
+            let email = form.uemail.value;
+            let phoneNo = form.umobile.value;
+            let address = form.uaddress.value;
+            let gender = form.gender.value;
+            let city = form.city.value;
+        }
+    </script>
+    <form>
+        Name : <input type="text" name="uname"><br>
+        Email : <input type="email" name="uemail"><br>
+        Mobile : <input type="number" name="umobile"><br>
+        Address:<textarea name="uaddress" rows="4" cols="30"></textarea><br>
+        Gender : <input type="radio" value="Male" name="gender" id="1"> Male
+        <input type="radio" value="Female" name="gender" id="2"> Female<br>
+        City : <select name="City" id="mycity">
+            <option name="city" id="1">Rajkot</option>
+            <option name="city" id="2">Ahmedabad</option>
+            <option name="city" id="3">Surat</option>
+            <option name="city" id="4">Jamnagar</option>
+        </select><br>
+        <input type="button" value="SUBMIT" onclick="check(this.form);">
+    </form>
+</body>
+
+</html>

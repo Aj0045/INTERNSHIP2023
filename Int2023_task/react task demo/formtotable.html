@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css'>
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <table class="table">
+            <tr>
+                <td>Name:-</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Email:- </td>
+                <td><input type="email" name="email" id=""></td>
+            </tr>
+            <tr>
+                <td>Phone No.:-</td>
+                <td><input type="number" name="phone" id=""></td>
+            </tr>
+            <tr>
+                <td>Address:-</td>
+                <td><textarea name="address" id="" cols="30" rows="4"></textarea></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" name="gender" id="" value="male"> Male
+                    <input type="radio" name="gender" id="" value="Female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td>City:-</td>
+                <td>
+                    <select name="city" id="">
+                        <option value="">select city</option>
+                        <option value="bhuj">Bhuj</option>
+                        <option value="rajkot">Rajkot</option>
+                        <option value="ahmd">Ahmedabad</option>
+                        <option value="vadodara">Vadodara</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button onclick="handleSubmit(this.form)">Submit</button>
+    </form>
+    <script>
+        const handleSubmit = (form) => {
+
+            let name = form.name.value;
+            let email = form.email.value;
+            let phoneNo = form.phone.value;
+            let address = form.address.value;
+            let gender = form.gender.value;
+            let city = form.city.value;
+
+            alert("Name :- " + name + "\n" + "Email:- " + email + " \n" + "Phone No:- " + phoneNo + "\n" + "Address:- " + address + "\n" + "Gender:- " + gender + "\n" + "City:-" + city)
+        }
+    </script>
+</body>
+
+</html>

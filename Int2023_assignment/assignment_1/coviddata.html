@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function check(form) {
+            var uname = form.dt.value;
+
+            if(uname=='')
+            {
+                alert("Please enter date instead of table");
+            }
+
+            async function load() {
+                let url = "https://data.covid19india.org/data.json";
+                let obj = await (await fetch(url)).json();
+                for (var i = 0; i < obj["cases_time_series"].length; i++) {
+                    if (uname == obj["cases_time_series"][i]["date"]) {
+                        document.getElementById("msg").innerHTML = "<table border='1' width='200px'><tr><td>NEW CASES</td><td>" + obj["cases_time_series"][i]["dailyconfirmed"] + "</td></tr><tr><td>NEW DEATHS</td><td>" + obj["cases_time_series"][i]["dailydeceased"] + "</td></tr></table>";
+                    }
+                }
+            }
+            load();
+        }
+    </script>
+    <form>
+        Date : <input type="text" name="dt">
+        <input type="submit" style="background-color: rgba(105, 105, 101, 0.493);"
+            onclick="check(this.form); return false;" />
+    </form>
+    <p id="msg"></p>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css'>
+    <title>Document</title>
+    <style>
+        .cont {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <form class="form-inline" id="form">
+            <div class="form-group mb-2">
+                <label for="pincode">Enter Pincode!</label>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="number" class="form-control" id="pincode" placeholder="Pincode">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </form>
+    </div>
+    <div class="city" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;" id="city">
+    </div>
+
+    <script>
+        let city = document.getElementById("city");
+        let form = document.getElementById("form")
+
+        const load = async (pincode) => {
+
+            let loader = `<div class="boxLoading"><h1 style="color:blue;">Loading!!!!! Please Wait</h1></div>`;
+            city.innerHTML = loader;
+            let url = `https://api.postalpincode.in/pincode/${pincode}`;
+            let data = await (await fetch(url)).json();
+
+            if (data[0]["PostOffice"] === null)
+                city.innerHTML = ("<h2 style='color:red;'>Invalid!! Pincode</h2>")
+            else {
+                let cities = "";
+                for (let i in data[0]["PostOffice"]) {
+                    cities += (data[0]["PostOffice"][i]["Name"] + "<br>");
+                }
+                city.innerHTML = cities;
+            }
+        }
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            let pincode = form.pincode.value;
+            if (pincode === '') city.innerHTML = ("<h2 style='color:red;'>Filed Can't be Empty</h2>")
+            else load(pincode)
+        }
+        form.addEventListener('submit', handleSubmit);
+    </script>
+</body>
+
+</html>
